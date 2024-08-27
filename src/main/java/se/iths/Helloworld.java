@@ -8,10 +8,10 @@ public class Helloworld {
 
     public static void main(String[] args) {
         System.out.println("Hello from Intellij");
-        String text = scanner.nextLine();
-        System.out.println("Du skrev " + text);
+        String Text = scanner.nextLine();
+        System.out.println("Du skrev " + Text);
+        System.out.println("Bye!");
 
-        System.out.println("Okej, gå hem då! Bye!");
 
     }
 }
