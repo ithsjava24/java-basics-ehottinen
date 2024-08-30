@@ -2,7 +2,7 @@ package se.iths;
 
 import java.util.Scanner;
 
-public class Helloworld {
+public class HelloWorld {
 
     public static Scanner scanner = new Scanner(System.in);
 
