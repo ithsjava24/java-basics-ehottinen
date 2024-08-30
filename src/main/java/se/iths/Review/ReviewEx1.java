@@ -2,7 +2,7 @@ package se.iths.Review;
 
 import java.util.Scanner;
 
-public class ReviewUppg1 {
+public class ReviewEx1 {
 
     public static void main(String[] args) {
 
