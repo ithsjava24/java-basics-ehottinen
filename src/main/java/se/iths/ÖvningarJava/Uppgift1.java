@@ -1,4 +1,4 @@
-package se.iths.Uppgifter;
+package se.iths.ÖvningarJava;
 
 import java.util.Scanner;
 
