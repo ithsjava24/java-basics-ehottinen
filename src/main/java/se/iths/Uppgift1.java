@@ -15,6 +15,8 @@ public class Uppgift1 {
          int tal2 = Integer.parseInt(tal);
          System.out.println("Är du " + tal2 + " år gammal?");
 
+
+
 //        int x;
 //        x = 15;
 //        System.out.println(x); // 15

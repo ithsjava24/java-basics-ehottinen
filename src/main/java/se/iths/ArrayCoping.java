@@ -1,5 +1,6 @@
+package se.iths;
 
-public class ArrayCoping{}
+public class ArrayCoping {
 
     public static void main(String [] args) {
         int a =10;
@@ -15,5 +16,7 @@ public class ArrayCoping{}
         System.out.println(",,,,,,,,");
         System.out.println(a + " | " + b);
 
+
+    }
 
 }
