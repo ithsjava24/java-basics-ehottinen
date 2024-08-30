@@ -1,4 +1,4 @@
-package se.iths;
+package se.iths.Uppgifter;
 
 import java.util.Scanner;
 
@@ -7,6 +7,8 @@ public class Uppgift1 {
     public static void main(String[] args) {
 
         Scanner sc = new Scanner(System.in);
+
+         System.out.println("Vad heter du?"); //la till efter genomgång
          String namn = sc.nextLine();
 
          System.out.println("Hej " + namn + "!");
