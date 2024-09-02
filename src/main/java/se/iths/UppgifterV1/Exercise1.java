@@ -3,6 +3,7 @@ package se.iths.UppgifterV1;
 import java.util.Scanner;
 
 public class Exercise1 {
+
     //odo: fråga efter namn
     //odo: skriv ut Hej Namn
     //odo: rätta liten bokstav till stor bokstav

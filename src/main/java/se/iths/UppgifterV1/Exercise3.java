@@ -4,6 +4,7 @@ import java.util.Scanner;
 import java.math.*;
 
 public class Exercise3 {
+
     //odo: fråga efter två tal
     //odo: skriv ut summan av talen
     //odo: om talen är samma värde ska summan dubblas innan de skrivs ut

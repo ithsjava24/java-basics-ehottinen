@@ -3,6 +3,7 @@ package se.iths.UppgifterV1;
 import java.util.Scanner;
 
 public class Exercise2 {
+
     //odo: fråga användaren om två tal
     //odo: skriv ut dem
     //odo: Skriv ut deras medelvärde
