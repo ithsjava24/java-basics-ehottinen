@@ -3,10 +3,10 @@ package se.iths.UppgifterV1;
 import java.util.Scanner;
 
 public class Exercise4 {
-    //todo: frågar efter namnet på en veckodag på engelska
-    //todo: använd: enhanced switch sats för att översätta namnet på dagen till ett tal (Monday = 1)
-    //todo: ogilltiga namn ska ge 0
-    //todo: programmet ska förstå små, stora bokstäver och kortversionen av namn
+    //odo: frågar efter namnet på en veckodag på engelska
+    //odo: använd: enhanced switch sats för att översätta namnet på dagen till ett tal (Monday = 1)
+    //odo: ogilltiga namn ska ge 0
+    //odo: programmet ska förstå små, stora bokstäver och kortversionen av namn
 
     public static void main(String[] args) {
         //public = tillgänglig utanför klassen

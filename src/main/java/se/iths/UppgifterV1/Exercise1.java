@@ -3,9 +3,9 @@ package se.iths.UppgifterV1;
 import java.util.Scanner;
 
 public class Exercise1 {
-    //todo: fråga efter namn
-    //todo: skriv ut Hej Namn
-    //todo: rätta liten bokstav till stor bokstav
+    //odo: fråga efter namn
+    //odo: skriv ut Hej Namn
+    //odo: rätta liten bokstav till stor bokstav
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);//skapar scanner sc

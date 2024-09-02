@@ -3,10 +3,10 @@ package se.iths.UppgifterV1;
 import java.util.Scanner;
 
 public class Exercise2 {
-    //todo: fråga användaren om två tal
-    //Todo: skriv ut dem
-    //Todo: Skriv ut deras medelvärde
-    //Todo: Talen ska vara heltal Medelvärdet ska vara i decimaltal
+    //odo: fråga användaren om två tal
+    //odo: skriv ut dem
+    //odo: Skriv ut deras medelvärde
+    //odo: Talen ska vara heltal Medelvärdet ska vara i decimaltal
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in); //skapar scanner

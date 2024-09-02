@@ -4,10 +4,10 @@ import java.util.Scanner;
 import java.math.*;
 
 public class Exercise3 {
-    //todo: fråga efter två tal
-    //todo: skriv ut summan av talen
-    //Todo: om talen är samma värde ska summan dubblas innan de skrivs ut
-    //todo: är talen negativa ska de göras till positiva före sumering
+    //odo: fråga efter två tal
+    //odo: skriv ut summan av talen
+    //odo: om talen är samma värde ska summan dubblas innan de skrivs ut
+    //odo: är talen negativa ska de göras till positiva före sumering
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in); //skapa en scanner
