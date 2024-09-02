@@ -1,4 +1,4 @@
-package se.iths.Review;
+package se.iths.ReviewV1;
 
 import java.util.Scanner;
 
