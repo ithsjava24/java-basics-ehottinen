@@ -21,7 +21,7 @@ public class MultiplicationTable {
 
     public static int add(int a, int b) {
         System.out.println("Calculating sum");
-        return a + b; //sista värdet är det enda som behöver returneras
+        return a + b; //sista värdet är det som behöver returneras
 
     }
 }
