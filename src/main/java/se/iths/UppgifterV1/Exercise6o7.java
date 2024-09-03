@@ -24,7 +24,7 @@ public class Exercise6o7 {
         int sum = 0; // en räknare, används för att summera talen
 
         for (int i = 0; i < myNum.length; i=i+2) { // går igenom vartannat nummer pga i+2
-             sum = sum + myNum[i]; //summerar
+             sum = sum + myNum[i]; //summerar kan skrivas som: sum=+myNum[i];
         }
         System.out.println(sum); //skriver ut =)
 
