@@ -1,4 +1,4 @@
-package se.iths.Lektion;
+package se.iths.LektionsÖvningar;
 
 import java.nio.charset.StandardCharsets;
 
