@@ -1,4 +1,4 @@
-package se.iths.ÖvningarJava;
+package se.iths;
 
 public class MultiplicationTable {
 
