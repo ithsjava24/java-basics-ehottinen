@@ -1,6 +1,6 @@
-package se.iths.ReviewV1;
+package se.iths.Review;
 
-public class ReviewEx8 {
+public class ReviewV1Ex8 {
     public static void main(String[] args) {
         int[] numbers = {1, 2, 1, 3, 3, 4};
         //1,2,1,3,3,4 everywhere

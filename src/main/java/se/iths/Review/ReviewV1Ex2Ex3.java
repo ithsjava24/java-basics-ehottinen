@@ -1,8 +1,8 @@
-package se.iths.ReviewV1;
+package se.iths.Review;
 
 import java.util.Scanner;
 
-public class ReviewEx2Ex3 {
+public class ReviewV1Ex2Ex3 {
 
     public static void main(String[] args) {
 
