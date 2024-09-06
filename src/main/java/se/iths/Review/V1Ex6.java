@@ -1,4 +1,4 @@
 package se.iths.Review;
 
-public class ReviewV1Ex7 {
+public class V1Ex6 {
 }
