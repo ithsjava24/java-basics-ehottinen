@@ -1,8 +1,8 @@
-package se.iths.UppgifterV1;
+package se.iths.Week1;
 
 import java.util.Scanner;
 
-public class Exercise5 {
+public class Ex5 {
 
     //odo: skriv ett program som låter användaren ange 3 heltal som argument
     //todo: om färre än 3 tal eller fler än 3 tal anges ska ett felmeddelande skrivas ut och programmet avslutas

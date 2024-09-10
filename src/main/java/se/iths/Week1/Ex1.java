@@ -1,8 +1,8 @@
-package se.iths.UppgifterV1;
+package se.iths.Week1;
 
 import java.util.Scanner;
 
-public class Exercise1 {
+public class Ex1 {
 
     //odo: fråga efter namn
     //odo: skriv ut Hej Namn

@@ -1,6 +1,6 @@
-package se.iths.UppgifterV1;
+package se.iths.Week1;
 
-public class Exercise8 {
+public class Ex8 {
     public static void main(String[] args) {
 
         //todo: skapa en array med jämnt antal tal men minst 4 ex: [1,2,1,3,3,4]

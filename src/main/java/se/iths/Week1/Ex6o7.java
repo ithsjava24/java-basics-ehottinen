@@ -1,6 +1,6 @@
-package se.iths.UppgifterV1;
+package se.iths.Week1;
 
-public class Exercise6o7 {
+public class Ex6o7 {
     public static void main(String[] args) {
         //6
         //odo: skriv ett program som skapar en array med 10 heltal av int

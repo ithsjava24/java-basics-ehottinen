@@ -1,8 +1,8 @@
-package se.iths.UppgifterV1;
+package se.iths.Week1;
 
 import java.util.Scanner;
 
-public class Exercise4 {
+public class Ex4 {
 
     //odo: frågar efter namnet på en veckodag på engelska
     //odo: använd: enhanced switch sats för att översätta namnet på dagen till ett tal (Monday = 1)

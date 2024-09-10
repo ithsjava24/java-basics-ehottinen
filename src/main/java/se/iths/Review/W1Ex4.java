@@ -1,7 +1,7 @@
 package se.iths.Review;
 
 import java.util.Scanner;
-public class V1Ex4 {
+public class W1Ex4 {
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);

@@ -1,9 +1,8 @@
-package se.iths.UppgifterV1;
+package se.iths.Week1;
 
 import java.util.Scanner;
-import java.math.*;
 
-public class Exercise3 {
+public class Ex3 {
 
     //odo: fråga efter två tal
     //odo: skriv ut summan av talen

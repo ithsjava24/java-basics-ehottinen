@@ -1,4 +1,4 @@
-package se.iths.UppgifterV2;
+package se.iths.Week2;
 
 import java.util.Scanner;
 
