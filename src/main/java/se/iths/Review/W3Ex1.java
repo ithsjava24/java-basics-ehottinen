@@ -3,8 +3,8 @@ package se.iths.Review;
 import java.util.Arrays;
 
 public class W3Ex1 {
-    //todo: Skriv en metod som tar en array av int som parameter
-    //todo: och om något av talen i arrayen är udda, kasta (throw) en exception av typen RuntimeException.
+    //odo: Skriv en metod som tar en array av int som parameter
+    //odo: och om något av talen i arrayen är udda, kasta (throw) en exception av typen RuntimeException.
 
     public static void main(String[] args){
 
