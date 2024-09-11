@@ -7,9 +7,6 @@ public class App {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
-        //PrintMenu();
-        //String name = sc.nextLine();
-
         while(true){
             Meny();
             String name = sc.nextLine();
