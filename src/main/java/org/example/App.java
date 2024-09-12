@@ -49,23 +49,23 @@ public class App {
     public static int[] inmatning(Scanner sc){
         int[] PrisLista = new int[12];
 
-        System.out.println("Inmatning");
+        System.out.print("Inmatning?\n");
         for (int i = 0; i < 12; i++){
-            System.out.println("Kan du ange elpriset mellan " + klockslag(i+i) + " - " + klockslag(i+i+2) + " i hela ören?");
+            System.out.print("Kan du ange elpriset mellan " + klockslag(i+i) + " - " + klockslag(i+i+2) + " i hela ören?\n");
             PrisLista [i] = sc.nextInt();
         }
         return PrisLista;
     }
     public static void minMaxMedel(Scanner sc){
-        System.out.println("Min, Max och Medel");
+        System.out.print("Min, Max och Medel\n");
         sc.nextLine();
     }
     public static void sortera(Scanner sc){
-        System.out.println("Sortera");
+        System.out.print("Sortera\n");
         sc.nextLine();
     }
     public static void bästaLaddningstid(Scanner sc){
-        System.out.println("Bästa Laddningstid (4h)");
+        System.out.print("Bästa Laddningstid (4h)\n");
         sc.nextLine();
     }
 }
