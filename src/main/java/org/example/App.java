@@ -8,20 +8,20 @@ public class App {
         Scanner sc = new Scanner(System.in);
 
         while(true){
-            Meny();
+            meny();
             String name = sc.nextLine();
             switch(name){
                 case "1":
-                    Inmatning(sc);
+                    inmatning(sc);
                     break;
                 case "2":
-                    MinMaxMedel(sc);
+                    minMaxMedel(sc);
                     break;
                 case "3":
-                    Sortera(sc);
+                    sortera(sc);
                     break;
                 case "4":
-                    BästaLaddningstid(sc);
+                    bästaLaddningstid(sc);
                     break;
             }
             if (name.equals("e") || name.equals("E")){
@@ -30,35 +30,41 @@ public class App {
         }
 
     }
-    public static void Meny(){
-        System.out.println("Elpriser");
-        System.out.println("========");
-        System.out.println("1. Inmatning");
-        System.out.println("2. Min, Max och Medel");
-        System.out.println("3. Sortera");
-        System.out.println("4. Bästa Laddningstid (4h)");
-        System.out.println("e. Avsluta");
+    public static void meny(){
+        System.out.print("Elpriser\n");
+        System.out.print("========\n");
+        System.out.print("1. Inmatning\n");
+        System.out.print("2. Min, Max och Medel\n");
+        System.out.print("3. Sortera\n");
+        System.out.print("4. Bästa Laddningstid (4h)\n");
+        System.out.print("e. Avsluta\n");
     }
-    public static int[] Inmatning(Scanner sc){
+    private static String klockslag(int i) {
+        if(i < 10){
+            return "0" + i + ":00";
+        }else{
+            return "" + i + ":00";
+        }
+    }
+    public static int[] inmatning(Scanner sc){
         int[] PrisLista = new int[12];
 
         System.out.println("Inmatning");
         for (int i = 0; i < 12; i++){
-            System.out.println("Kan du ange elpriset mellan " +  + " i hela ören?");
+            System.out.println("Kan du ange elpriset mellan " + klockslag(i+i) + " - " + klockslag(i+i+2) + " i hela ören?");
             PrisLista [i] = sc.nextInt();
         }
-
         return PrisLista;
     }
-    public static void MinMaxMedel(Scanner sc){
+    public static void minMaxMedel(Scanner sc){
         System.out.println("Min, Max och Medel");
         sc.nextLine();
     }
-    public static void Sortera(Scanner sc){
+    public static void sortera(Scanner sc){
         System.out.println("Sortera");
         sc.nextLine();
     }
-    public static void BästaLaddningstid(Scanner sc){
+    public static void bästaLaddningstid(Scanner sc){
         System.out.println("Bästa Laddningstid (4h)");
         sc.nextLine();
     }
