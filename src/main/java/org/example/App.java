@@ -39,10 +39,16 @@ public class App {
         System.out.println("4. Bästa Laddningstid (4h)");
         System.out.println("e. Avsluta");
     }
-    public static void Inmatning(Scanner sc){
+    public static int[] Inmatning(Scanner sc){
+        int[] PrisLista = new int[12];
+
         System.out.println("Inmatning");
-        System.out.println("Uuuuuuuugh!?!");
-        sc.nextLine();
+        for (int i = 0; i < 12; i++){
+            System.out.println("Kan du ange elpriset mellan " +  + " i hela ören?");
+            PrisLista [i] = sc.nextInt();
+        }
+
+        return PrisLista;
     }
     public static void MinMaxMedel(Scanner sc){
         System.out.println("Min, Max och Medel");
