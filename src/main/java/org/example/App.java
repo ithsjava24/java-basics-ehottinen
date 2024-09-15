@@ -65,26 +65,20 @@ public class App {
         System.out.print("Min, Max och Medel\n");
         System.out.print("========\n");
         int min = priser[0];
+        int max = priser[0];
+        int summa = priser[0];
 
         for (int i = 1; i < priser.length; i++) {
             if (priser[i] < min) {
                 min = priser[i];
             }
-        }
-        int max = priser[0];
-
-        for (int i = 1; i > priser.length; i++) {
             if (priser[i] > max) {
                 max = priser[i];
             }
-        }
-
-        int summa = 0;
-
-        for (int varde : priser) {
-            summa += varde;
+            summa += priser[i];
         }
         double medel = (double) summa / priser.length;
+
         System.out.print("Minimumvärdet är: " + min + "\n");
         System.out.print("Maximumvärdet är: " + max + "\n");
         System.out.print("Medelvärdet är: " + medel + "\n");
