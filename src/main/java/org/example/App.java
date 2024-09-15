@@ -6,16 +6,17 @@ public class App {
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
+        int[] priser;
 
         while(true){
             meny();
             String name = sc.nextLine();
             switch(name){
                 case "1":
-                    inmatning(sc);
+                    priser = inmatning(sc);
                     break;
                 case "2":
-                    minMaxMedel(sc);
+                    minMaxMedel(sc, priser);
                     break;
                 case "3":
                     sortera(sc);
@@ -56,8 +57,29 @@ public class App {
         }
         return PrisLista;
     }
-    public static void minMaxMedel(Scanner sc){
+    public static void minMaxMedel(Scanner sc, int[] priser){
         System.out.print("Min, Max och Medel\n");
+        int min = priser[0];
+
+        for (int i = 1; i < priser.length; i++) {
+            if (priser[i] < min) {
+                min = priser[i];
+            }
+        }
+        int max = priser[0];
+
+        for (int i = 1; i > priser.length; i++) {
+            if (priser[i] > max) {
+                max = priser[i];
+            }
+        }
+
+        int summa = 0;
+
+        for (int varde : priser) {
+            summa += varde;
+        }
+        double medel = (double) summa / priser.length;
         sc.nextLine();
     }
     public static void sortera(Scanner sc){
