@@ -1,17 +1,18 @@
 package org.example;
 
 import java.util.Scanner;
+import java.util.Arrays;
 
 public class App {
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        int[] priser = {0,1,2,3,4,5,6,7,8,9,10,11,12};
+        PrisOchTid[] priser = new PrisOchTid[24];
 
-        while(true){
+        while (true) {
             meny();
-            String name = sc.nextLine();
-            switch(name){
+            String input = sc.nextLine();
+            switch (input) {
                 case "1":
                     priser = inmatning(sc);
                     break;
@@ -19,79 +20,102 @@ public class App {
                     minMaxMedel(sc, priser);
                     break;
                 case "3":
-                    sortera(sc);
+                    sortera(sc, priser);
                     break;
                 case "4":
                     bästaLaddningstid(sc);
                     break;
             }
-            if (name.equals("e") || name.equals("E")){
+            if (input.equals("e") || input.equals("E")) {
                 break;
             }
         }
+    }
+    record PrisOchTid(int pris, int tid) implements Comparable <PrisOchTid> {
+        @Override
+    public int compareTo(PrisOchTid other){
+        return this.pris - other.pris;
+        }
+    }
 
+    public static void meny() {
+        String t = """
+                Elpriser
+                ========
+                1. Inmatning
+                2. Min, Max och Medel
+                3. Sortera
+                4. Bästa Laddningstid (4h)
+                e. Avsluta
+                """;
+        System.out.print(t);
     }
-    public static void meny(){
-        System.out.print("Elpriser\n");
-        System.out.print("========\n");
-        System.out.print("1. Inmatning\n");
-        System.out.print("2. Min, Max och Medel\n");
-        System.out.print("3. Sortera\n");
-        System.out.print("4. Bästa Laddningstid (4h)\n");
-        System.out.print("e. Avsluta\n");
-    }
+
     private static String klockslag(int i) {
-        if(i < 10){
-            return "0" + i + ":00";
-        }else{
-            return "" + i + ":00";
+        if (i < 10) {
+            return "0" + i;
+        } else {
+            return "" + i;
         }
     }
-    public static int[] inmatning(Scanner sc){
-        int[] PrisLista = new int[12];
 
-        System.out.print("Inmatning\n");
-        System.out.print("========\n");
-        for (int i = 0; i < 12; i++){
-            System.out.print("Kan du ange elpriset mellan " + klockslag(i+i) + " - " + klockslag(i+i+2) + " i hela ören?\n");
-            PrisLista [i] = sc.nextInt();
+    private static PrisOchTid[] inmatning(Scanner sc) {
+        PrisOchTid[] PrisLista = new PrisOchTid[24];
+        String t = """
+            Inmatning
+            """;
+        System.out.print(t);
+
+        for (int i = 0; i < PrisLista.length; i++) {
+            System.out.print("Kan du ange elpriset mellan " + klockslag(i) + " - " + klockslag(i + 1) + " i hela ören?\n");
+            PrisLista[i] = new PrisOchTid(sc.nextInt(),i);
         }
-        System.out.print("Tryck ENTER för att återgå till menyn: \n");
-        //Todo: Blockar inte som den ska, hitta varför
-        String test = sc.nextLine();
         return PrisLista;
     }
-    public static void minMaxMedel(Scanner sc, int[] priser){
-        System.out.print("Min, Max och Medel\n");
-        System.out.print("========\n");
-        int min = priser[0];
-        int max = priser[0];
-        int summa = priser[0];
+
+    public static void minMaxMedel(Scanner sc, PrisOchTid[] priser) {
+        String t = """
+        Min, Max och Medel
+        """;
+        System.out.print(t);
+
+        PrisOchTid min = priser[0];
+        PrisOchTid max = priser[0];
+        int summa = priser[0].pris;
 
         for (int i = 1; i < priser.length; i++) {
-            if (priser[i] < min) {
+            if (priser[i].pris < min.pris) {
                 min = priser[i];
             }
-            if (priser[i] > max) {
+            if (priser[i].pris > max.pris) {
                 max = priser[i];
             }
-            summa += priser[i];
+            summa += priser[i].pris;
         }
         double medel = (double) summa / priser.length;
 
-        System.out.print("Minimumvärdet är: " + min + "\n");
-        System.out.print("Maximumvärdet är: " + max + "\n");
-        System.out.print("Medelvärdet är: " + medel + "\n");
-        System.out.print("\n");
-        System.out.print("Tryck ENTER för att återgå till menyn: \n");
-        sc.nextLine();
+        String minString = String.format("Lägsta pris: " +klockslag(min.tid) + "-" +klockslag(min.tid +1) + ", %d öre/kWh \n", min.pris);
+        String maxString = String.format("Högsta pris: " +klockslag(max.tid) + "-" +klockslag(max.tid +1) + ", %d öre/kWh \n", max.pris);
+        String medelString = String.format("Medelpris: %f öre/kWh\n", medel);
+        System.out.print(minString + maxString + medelString);
     }
-    public static void sortera(Scanner sc){
-        System.out.print("Sortera\n");
-        sc.nextLine();
+
+    public static void sortera(Scanner sc, PrisOchTid[] priser) {
+        String t = """
+        Sortera
+        """;
+        System.out.print(t);
+
+        Arrays.sort(priser,(o1, o2)-> o2.pris() - o1.pris());
+
+        for (PrisOchTid v : priser) {
+            System.out.print(String.format("%s-%s %d ören\n", klockslag(v.tid),klockslag(v.tid+1), v.pris));
+        }
     }
-    public static void bästaLaddningstid(Scanner sc){
-        System.out.print("Bästa Laddningstid (4h)\n");
-        sc.nextLine();
+    public static void bästaLaddningstid(Scanner sc) {
+        String t = """
+        Bästa Laddningstid (4h)
+        """;
+        System.out.print(t);
     }
 }
