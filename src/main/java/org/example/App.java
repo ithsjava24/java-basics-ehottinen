@@ -1,5 +1,8 @@
 package org.example;
 
+import java.text.DecimalFormat;
+import java.text.NumberFormat;
+import java.util.Locale;
 import java.util.Scanner;
 import java.util.Arrays;
 
@@ -7,23 +10,23 @@ public class App {
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        PrisOchTid[] priser = new PrisOchTid[24];
+        PrisOchTid[] priserOchTider = new PrisOchTid[24];
 
         while (true) {
             meny();
             String input = sc.nextLine();
             switch (input) {
                 case "1":
-                    priser = inmatning(sc);
+                    priserOchTider = inmatning(sc);
                     break;
                 case "2":
-                    minMaxMedel(sc, priser);
+                    minMaxMedel(sc, priserOchTider);
                     break;
                 case "3":
-                    sortera(sc, priser);
+                    sortera(sc, priserOchTider);
                     break;
                 case "4":
-                    bästaLaddningstid(sc);
+                    bästaLaddningstid(sc, priserOchTider);
                     break;
             }
             if (input.equals("e") || input.equals("E")) {
@@ -36,6 +39,11 @@ public class App {
     public int compareTo(PrisOchTid other){
         return this.pris - other.pris;
         }
+    }
+
+    public static String kommatecken(double value) {
+        DecimalFormat df = (DecimalFormat) NumberFormat.getNumberInstance(new Locale("sv", "SE"));
+        return df.format(value);
     }
 
     public static void meny() {
@@ -60,62 +68,83 @@ public class App {
     }
 
     private static PrisOchTid[] inmatning(Scanner sc) {
-        PrisOchTid[] PrisLista = new PrisOchTid[24];
+        PrisOchTid[] priserOchTider = new PrisOchTid[24];
         String t = """
             Inmatning
             """;
         System.out.print(t);
 
-        for (int i = 0; i < PrisLista.length; i++) {
-            System.out.print("Kan du ange elpriset mellan " + klockslag(i) + " - " + klockslag(i + 1) + " i hela ören?\n");
-            PrisLista[i] = new PrisOchTid(sc.nextInt(),i);
+        for (int i = 0; i < priserOchTider.length; i++) {
+            System.out.print("Kan du ange pris per timma " + klockslag(i) + " - " + klockslag(i + 1) + " i ören?\n");
+            priserOchTider[i] = new PrisOchTid(sc.nextInt(),i);
+            sc.nextLine();
         }
-        return PrisLista;
+        return priserOchTider;
     }
 
-    public static void minMaxMedel(Scanner sc, PrisOchTid[] priser) {
+    public static void minMaxMedel(Scanner sc, PrisOchTid[] priserOchTider) {
         String t = """
         Min, Max och Medel
         """;
         System.out.print(t);
 
-        PrisOchTid min = priser[0];
-        PrisOchTid max = priser[0];
-        int summa = priser[0].pris;
+        PrisOchTid min = priserOchTider[0];
+        PrisOchTid max = priserOchTider[0];
+        int summa = priserOchTider[0].pris;
 
-        for (int i = 1; i < priser.length; i++) {
-            if (priser[i].pris < min.pris) {
-                min = priser[i];
+        for (int i = 1; i < priserOchTider.length; i++) {
+            if (priserOchTider[i].pris < min.pris) {
+                min = priserOchTider[i];
             }
-            if (priser[i].pris > max.pris) {
-                max = priser[i];
+            if (priserOchTider[i].pris > max.pris) {
+                max = priserOchTider[i];
             }
-            summa += priser[i].pris;
+            summa += priserOchTider[i].pris;
         }
-        double medel = (double) summa / priser.length;
+        double medel = (double) summa / priserOchTider.length;
 
-        String minString = String.format("Lägsta pris: " +klockslag(min.tid) + "-" +klockslag(min.tid +1) + ", %d öre/kWh \n", min.pris);
-        String maxString = String.format("Högsta pris: " +klockslag(max.tid) + "-" +klockslag(max.tid +1) + ", %d öre/kWh \n", max.pris);
-        String medelString = String.format("Medelpris: %f öre/kWh\n", medel);
+        String minString = String.format("Lägsta pris: " +klockslag(min.tid) + "-" +klockslag(min.tid +1) + ", %d öre/kWh\n", min.pris);
+        String maxString = String.format("Högsta pris: " +klockslag(max.tid) + "-" +klockslag(max.tid +1) + ", %d öre/kWh\n", max.pris);
+        String medelString = String.format("Medelpris: %.2f öre/kWh\n", medel);
         System.out.print(minString + maxString + medelString);
     }
 
-    public static void sortera(Scanner sc, PrisOchTid[] priser) {
+    public static void sortera(Scanner sc, PrisOchTid[] priserOchTider) {
         String t = """
         Sortera
         """;
         System.out.print(t);
 
-        Arrays.sort(priser,(o1, o2)-> o2.pris() - o1.pris());
+        Arrays.sort(priserOchTider,(o1, o2)-> o2.pris() - o1.pris());
 
-        for (PrisOchTid v : priser) {
-            System.out.print(String.format("%s-%s %d ören\n", klockslag(v.tid),klockslag(v.tid+1), v.pris));
+        for (PrisOchTid v : priserOchTider) {
+            System.out.print(String.format("%s-%s %d öre\n", klockslag(v.tid),klockslag(v.tid+1), v.pris));
         }
     }
-    public static void bästaLaddningstid(Scanner sc) {
+
+    public static void bästaLaddningstid(Scanner sc, PrisOchTid[] priserOchTider) {
         String t = """
         Bästa Laddningstid (4h)
         """;
         System.out.print(t);
+
+        int timma = Integer.MAX_VALUE;
+        double minimum = Double.MAX_VALUE;
+
+        for (int i = 0; i <= priserOchTider.length -4; i++)
+        {
+            int sum = 0;
+
+            for (int j = i; j < i + 4; j++) {
+                sum += priserOchTider[j].pris;
+            }
+            double medel = sum / 4.0;
+            if (medel < minimum) {
+                minimum = medel;
+                timma = i;
+            }
+        }
+        System.out.print("Påbörja laddning klockan " + klockslag(timma) + "\n");
+        System.out.print("Medelpris 4h: " + kommatecken(minimum) + " öre/kWh\n");
     }
 }
