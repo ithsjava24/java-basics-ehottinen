@@ -33,9 +33,6 @@ public class App {
                 case "4":
                     bästaLaddningstid(sc, priserOchTider);
                     break;
-                case "5":
-                    visualisering(sc, priserOchTider);
-                    break;
             }
             if (input.equals("e") || input.equals("E")) {
                 break;
@@ -72,7 +69,6 @@ public class App {
                 2. Min, Max och Medel
                 3. Sortera
                 4. Bästa Laddningstid (4h)
-                5. Visualisering
                 e. Avsluta
                 """;
         System.out.print(t);
@@ -160,38 +156,5 @@ public class App {
         }
         System.out.print("Påbörja laddning klockan " + klockslag(timma) + "\n");
         System.out.print("Medelpris 4h: " + kommatecken(minimum, 0) + " öre/kWh\n");
-    }
-
-    public static void visualisering(Scanner sc, PrisOchTid[] priserOchTider) {
-
-            System.out.println("Tid\t\tPris");
-            System.out.println("---------------------");
-
-            for (PrisOchTid pt : priserOchTider) {
-
-                System.out.printf("%s\t%d öre%n", klockslag(pt.tid), pt.pris);
-            }
-            for (int j = 10; j >= 0; j--) {
-        System.out.print(" |");
-                for (int i = 0; i < priserOchTider.length; i++) {
-                    if (priserOchTider[i].pris > 10 * j) {
-                        System.out.print(" X ");
-                    } else {
-                        System.out.print("   ");
-                    }
-                }
-                System.out.print("\n");
-            }
-        System.out.print(" |");
-
-            for (int i = 0; i < priserOchTider.length; i++) {
-                System.out.print("---");
-            }
-        System.out.print("\n |");
-
-            for (int i = 0; i < priserOchTider.length; i++) {
-                System.out.printf("%s ", klockslag(priserOchTider[i].tid));
-            }
-            System.out.print("\n\n");
     }
 }
