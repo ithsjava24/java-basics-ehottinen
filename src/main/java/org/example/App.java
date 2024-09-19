@@ -64,8 +64,6 @@ public class App {
         }
     }
 
-    private
-
     public static void meny() {
         String t = """
                 Elpriser
