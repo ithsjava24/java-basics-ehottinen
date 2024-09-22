@@ -10,20 +10,20 @@ public class Ex3 {
     //odo: är talen negativa ska de göras till positiva före sumering
 
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in); //skapa en scanner
-        System.out.println("Kan jag få två tal, tack?"); //fråga
-        double n1 = sc.nextDouble(); // skapa plats och spara tal (man kan "inte få fel" med double)
-        double n2 = sc.nextDouble(); // same
+        Scanner sc = new Scanner(System.in);
 
-        n1 = Math.abs(n1); // absolutvärde gör minus till plus och plus till plus
-        n2 = Math.abs(n2); // same
+        System.out.println("Ge mig två tal, tack");
+        double n = sc.nextDouble();
+        double n2 = sc.nextDouble();
 
-        double sum = n1 + n2; // sumerar n1, n2 för att kunna dublera summan i if
+        n = Math.abs(n);
+        n2 = Math.abs(n2);
 
-        if (n1==n2){ //om de har samma värde
-            sum = sum * 2; //dubblerar värdet
+        double sum = n + n2;
+
+        if (n==n2) {
+            sum = sum * 2;
         }
-        System.out.println("Summan är " + (sum)); //skriver ut värdet
-
+        System.out.println("Summan är: " + sum);
     }
 }
